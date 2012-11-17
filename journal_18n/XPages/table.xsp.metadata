@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.0" replicaid="49257AA6004E2BFA" version="8.5" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="146" sequence="309" unid="DD80A71B07022041492577910029E070">
+<created><datetime>20100901T163724,32+09</datetime></created>
+<modified><datetime>20121117T215115,68+09</datetime></modified>
+<revised><datetime>20121117T215115,67+09</datetime></revised>
+<lastaccessed><datetime>20121117T215115,68+09</datetime></lastaccessed>
+<addedtofile><datetime>20121029T231351,04+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Hiroaki Komine/OU=Japan/O=IBM</name><name>CN=admin/O=LotusLab</name><name>CN=Atsushi 1 Ono/OU=Japan/O=IBM</name></updatedby>
+<wassignedby><name>CN=Atsushi 1 Ono/OU=Japan/O=IBM</name></wassignedby>
+<item name="$Flags"><text>gC~4K</text></item>
+<item name="$TITLE"><text>table.xsp</text></item>
+<item name="$Comment" sign="true"><text>経費項目の表示と入力のページ</text></item>
+
+
+
+<item name="$FileNames" sign="true"><text>table.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5.1</text></item>
+
+
+
+
+</note>

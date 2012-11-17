@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:br></xp:br>
+	<xp:table style="width:750px">
+		<xp:tr>
+			<xp:td style="width:100px;background-color:rgb(126,126,126)"
+				colspan="2">
+				<xp:label id="labelFooterTitle" value="Browser access information"
+					style="color:rgb(255,255,255);font-weight:bold;font-size:12pt">
+				</xp:label>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="width:100px;background-color:rgb(168,168,168)">
+				<xp:label value="User-agent:" id="labelUserAgent"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:text escape="true" id="computedUserAgent"
+					value="#{javascript:context.getUserAgent().getUserAgent()}"></xp:text>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="background-color:rgb(168,168,168)">
+				<xp:label value="Locale:" id="labelLocale"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:text escape="true" id="computedLocale"
+					value="#{javascript:context.getLocale()}"></xp:text>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="background-color:rgb(168,168,168)">
+				<xp:label value="Request Header:" id="labelRequestHeader"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:repeat id="repeat1" rows="30"
+					value="#{javascript:header.entrySet()}" var="entry">
+					<xp:panel>
+						<xp:table style="width:100%">
+							<xp:tr>
+								<xp:td style="width:150px;background-color:rgb(210,210,210)">
+									<xp:text escape="true" id="computedField1"
+										value="#{javascript:entry.getKey()}">
+									</xp:text>
+								</xp:td>
+								<xp:td>
+									<xp:text escape="true" id="computedField2"
+										value="#{javascript:entry.getValue()}"></xp:text>
+								</xp:td>
+							</xp:tr>
+						</xp:table>
+					</xp:panel>
+				</xp:repeat>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+</xp:view>

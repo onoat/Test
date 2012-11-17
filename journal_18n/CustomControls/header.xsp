@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:styleSheet href="/style.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:panel style="margin-left:10.0px">
+		<xp:image url="/lotus.gif" id="image1"></xp:image>
+		<xp:text escape="true" id="computedField1" styleClass="panelHeader"
+			value="#{javascript:compositeData.propertyTitle}">
+		</xp:text>
+	</xp:panel>
+</xp:view>

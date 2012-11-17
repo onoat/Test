@@ -1,0 +1,52 @@
+body {
+	background-color:#ffffff;
+	background-image:url(./backgroundMain.gif);
+	background-position:bottom left;
+	background-repeat:repeat-x;
+}
+.border {
+	background-color:#eBfddf;
+	background-image:url(./pin.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	padding:25px 3px 3px;
+	border:1px solid #aaaaaa;
+	-moz-border-radius:5px 5px 5px 5px;
+}
+.border2 {
+	background-color:#eBfddf;
+	background-image:url(./pin.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+	padding:3px;
+	border:1px solid #aaaaaa;
+	-moz-border-radius:5px 5px 5px 5px;
+}
+.panelHeader {
+	color:#105cb6;
+	padding:0px 8px 0px;
+	font-weight: bold;
+	font-size:12pt;
+}
+.panelHeader .xspTextLabel {
+	font-weight: bold;
+}
+.panelSubHeader {
+	color:#105cb6;
+	padding:0px 8px 0px;
+	font-size:10pt;
+}
+.panelRow {
+	border-top: 1px solid #e8e8e9;
+	padding:0px 8px 0px;
+}
+.panelTotal {
+	background-color:#f3f3f3;
+	border:1px solid #e8e8e9;
+	color:#ff0000;
+	padding:0px 8px 0px;
+}
+.panelTotal .xspTextLabel {
+	color:#ff0000;
+	font-weight: bold;
+}

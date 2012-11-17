@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.data>
+		<xp:dominoDocument var="itemDocument" formName="item"></xp:dominoDocument>
+	</xp:this.data>
+	<xp:this.resources>
+		<xp:styleSheet href="/style.css"></xp:styleSheet>
+		<xp:script src="/StringsUtil.jss" clientSide="false"></xp:script>
+	</xp:this.resources>
+	<xc:header propertyTitle="Expense List"></xc:header>
+	<xp:table style="width:750px">
+		<xp:tr>
+			<xp:td>
+			</xp:td>
+			<xp:td align="right">
+				<xp:link escape="true" id="linkAbout" text="About this application">
+
+				<xp:eventHandler event="onclick" submit="false">
+					<xp:this.script><![CDATA[var message = "This Application is developed to show I18n/L10n of XPages application.";
+alert(message);]]></xp:this.script>
+				</xp:eventHandler></xp:link>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td style="width:400px">
+				<xp:viewPanel rows="10" id="viewPanel1" pageName="/table.xsp"
+					viewStyleClass="border" summary="List of all Expenses" title="Expenses List"
+					viewStyle="width:100%">
+					<xp:this.facets>
+						<xp:pager partialRefresh="true" layout="Previous Group Next"
+							xp:key="headerPager" id="pager1">
+						</xp:pager>
+					</xp:this.facets>
+					<xp:this.data>
+						<xp:dominoView var="itemlist" viewName="itemlist">
+						</xp:dominoView>
+					</xp:this.data>
+					<xp:viewColumn columnName="date" id="viewColumnDate">
+						<xp:this.converter>
+							<xp:convertDateTime type="date" dateStyle="short">
+							</xp:convertDateTime>
+						</xp:this.converter>
+						<xp:viewColumnHeader value="Date" id="viewColumnHeader1">
+						</xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn id="viewColumnAccount" columnName="account">
+						<xp:this.value><![CDATA[#{javascript:
+var account = viewEntry.getColumnValue("account")
+return account
+							}]]></xp:this.value>
+						<xp:viewColumnHeader id="viewColumnHeader2"
+							value="Account">
+						</xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn columnName="memo" id="viewColumnMemo"
+						displayAs="link">
+						<xp:viewColumnHeader value="Memo" id="viewColumnHeader3">
+						</xp:viewColumnHeader>
+					</xp:viewColumn>
+					<xp:viewColumn columnName="amount" id="viewColumnAmount"
+						style="text-align:right">
+						<xp:this.converter>
+							<xp:convertNumber type="number" integerOnly="true">
+							</xp:convertNumber>
+						</xp:this.converter>
+						<xp:viewColumnHeader value="Amount" id="viewColumnHeader4">
+						</xp:viewColumnHeader>
+					</xp:viewColumn>
+				</xp:viewPanel>
+			</xp:td>
+			<xp:td valign="top" style="height:auto">
+				<xp:panel styleClass="border2">
+					<xp:text escape="true" id="computedExpenseDetail"
+						style="margin-left:25.0px;font-weight:bold" styleClass="panelSubHeader">
+						<xp:this.value><![CDATA[#{javascript:
+if (itemDocument.isNewNote()) {
+	return "New Expense";
+} else {
+	return "Expense for" + itemDocument.getItemValueString("memo");
+}
+						}]]></xp:this.value>
+					</xp:text>
+					<xp:table style="margin-top:10.0px">
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Date:" id="date_Label1" for="date1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{itemDocument.date}" id="inputTextDate"
+									defaultValue="#{javascript:@Today()}">
+									<xp:this.converter>
+										<xp:convertDateTime type="date" dateStyle="short">
+										</xp:convertDateTime>
+									</xp:this.converter>
+									<xp:dateTimeHelper id="dateTimeHelper1">
+									</xp:dateTimeHelper>
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Account:;" id="account_Label1" for="account1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:comboBox value="#{itemDocument.account}" id="inputTextAccount">
+									<xp:selectItem itemLabel="Traffic" itemValue="traffic"
+										id="selectItem1">
+									</xp:selectItem>
+									<xp:selectItem itemValue="communication"
+										itemLabel="Communications" id="selectItem2">
+									</xp:selectItem>
+									<xp:selectItem itemLabel="Foods" itemValue="foods"
+										id="selectItem3">
+									</xp:selectItem>
+									<xp:selectItem itemLabel="Utilities" itemValue="utilities"
+										id="selectItem4">
+									</xp:selectItem>
+									<xp:selectItem itemLabel="Supplies" itemValue="supplies"
+										id="selectItem5">
+									</xp:selectItem>
+									<xp:selectItem itemLabel="Publications"
+										itemValue="publications" id="selectItem6">
+									</xp:selectItem>
+									<xp:selectItem itemLabel="Others" itemValue="others"
+										id="selectItem7">
+									</xp:selectItem>
+								</xp:comboBox>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Memo:" id="memo_Label1" for="memo1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{itemDocument.memo}" id="inputTextMemo"
+									required="true">
+									<xp:this.validators>
+										<xp:validateRequired>
+											<xp:this.message><![CDATA[Please specify a description in "Memo" field.]]></xp:this.message>
+										</xp:validateRequired>
+									</xp:this.validators>
+									<xp:typeAhead mode="partial" minChars="1" id="typeAhead1">
+										<xp:this.valueList><![CDATA[#{javascript:@DbColumn(@DbName(), "itemlist", 3)}]]></xp:this.valueList>
+									</xp:typeAhead>
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Amount:" id="amount_Label1" for="amount1">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:inputText value="#{itemDocument.amount}" id="inputTextAmount"
+									required="true">
+									<xp:this.converter>
+										<xp:convertNumber type="number">
+										</xp:convertNumber>
+									</xp:this.converter>
+									<xp:this.validators>
+										<xp:validateRequired>
+											<xp:this.message><![CDATA[Please specify payment in "Amount" field.]]></xp:this.message>
+										</xp:validateRequired>
+										<xp:validateLongRange minimum="1">
+											<xp:this.message><![CDATA[Zero is not allowed in "Amount" field.]]></xp:this.message>
+										</xp:validateLongRange>
+									</xp:this.validators>
+								</xp:inputText>
+							</xp:td>
+						</xp:tr>
+						<xp:tr>
+							<xp:td colspan="2">
+								<xp:button value="Add" id="buttonAdd"
+									rendered="#{javascript:itemDocument.isNewNote()}">
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete" id="eventHandler1">
+										<xp:this.action>
+											<xp:actionGroup>
+												<xp:saveDocument></xp:saveDocument>
+												<xp:executeScript>
+													<xp:this.script><![CDATA[#{javascript:
+													var date = formatDate(getComponent("inputTextDate").getValue());
+var account = getComponent("inputTextAccount").getValue();
+var memo = getComponent("inputTextMemo").getValue();
+var amount = formatCurrency(getComponent("inputTextAmount").getValue());
+
+sessionScope.message = getMessage4Add(date, account, memo, amount);
+													}]]></xp:this.script>
+												</xp:executeScript>
+												<xp:openPage name="/table.xsp">
+												</xp:openPage>
+											</xp:actionGroup>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+								<xp:button value="Update" id="buttonUpdate"
+									rendered="#{javascript:!itemDocument.isNewNote()}">
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete" id="eventHandler2">
+										<xp:this.action>
+											<xp:actionGroup>
+												<xp:saveDocument></xp:saveDocument>
+												<xp:executeScript>
+													<xp:this.script><![CDATA[#{javascript:
+var date = formatDate(getComponent("inputTextDate").getValue());
+var account = getComponent("inputTextAccount").getValue();
+var memo = getComponent("inputTextMemo").getValue();
+var amount = formatCurrency(getComponent("inputTextAmount").getValue());
+
+sessionScope.message = getMessage4Update(date, account, memo, amount);
+													}]]></xp:this.script>
+												</xp:executeScript>
+												<xp:openPage name="/table.xsp">
+												</xp:openPage>
+											</xp:actionGroup>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+								<xp:button value="Delete" id="buttonDelete"
+									rendered="#{javascript:!itemDocument.isNewNote()}">
+
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete" id="eventHandler3">
+										<xp:this.action>
+											<xp:actionGroup>
+												<xp:executeScript>
+													<xp:this.script><![CDATA[#{javascript:
+var memo = getComponent("inputTextMemo").getValue();
+sessionScope.message = getMessage4Delete(memo);
+													}]]></xp:this.script>
+												</xp:executeScript>
+												<xp:deleteDocument
+													message="Will you realy delete thie expense entry ?" name="/table.xsp">
+												</xp:deleteDocument>
+											</xp:actionGroup>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+								<xp:button value="Cancel" id="buttonCancel">
+									<xp:eventHandler event="onclick" submit="true"
+										refreshMode="complete" id="eventHandler4" immediate="true">
+										<xp:this.action>
+											<xp:openPage name="/table.xsp" target="newDocument">
+											</xp:openPage>
+										</xp:this.action>
+									</xp:eventHandler>
+								</xp:button>
+							</xp:td>
+						</xp:tr>
+					</xp:table>
+				</xp:panel>
+				<xp:panel styleClass="border2" style="margin-top:10.0px">
+					<xp:label value="Message" id="labelMessage"
+						style="font-weight:bold;margin-left:25.0px" styleClass="panelSubHeader">
+					</xp:label>
+					<xp:panel style="margin-top:10.0px">
+						<xp:text escape="true" id="computedField1">
+							<xp:this.value><![CDATA[#{javascript:
+var message = sessionScope.message;
+sessionScope.message = null;
+return message;
+							}]]></xp:this.value>
+						</xp:text>
+					</xp:panel>
+				</xp:panel>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+
+</xp:view>
