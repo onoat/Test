@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE note SYSTEM 'xmlschemas/domino_8_5_3.dtd'>
 <note class='form' xmlns='http://www.lotus.com/dxl' version='8.5' maintenanceversion='3.0'
- replicaid='49257AA6004E2BFA'>
-<noteinfo noteid='13a' unid='6FB99DF2EC95C57749257791000FB77D' sequence='12'>
+ replicaid='49257ABB0024F3A8'>
+<noteinfo noteid='17a' unid='6FB99DF2EC95C57749257791000FB77D' sequence='3'>
 <created><datetime>20100901T115140,13+09</datetime></created>
-<modified><datetime>20121029T231350,98+09</datetime></modified>
-<revised><datetime>20121017T141719,47+09</datetime></revised>
-<lastaccessed><datetime>20121029T231350,98+09</datetime></lastaccessed>
-<addedtofile><datetime>20121029T231350,98+09</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Hiroaki Komine/OU=Japan/O=IBM</name><name>CN=admin/O=LotusLab</name></updatedby>
+<modified><datetime>20121119T155235,49+09</datetime></modified>
+<revised><datetime>20121119T155235,46+09</datetime></revised>
+<lastaccessed><datetime>20121119T155235,49+09</datetime></lastaccessed>
+<addedtofile><datetime>20121119T154339,73+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Domino Administrator/O=EFMIYO</name></updatedby>
+<wassignedby><name>CN=Domino Administrator/O=EFMIYO</name></wassignedby>
 <item name='$Comment' sign='true'><text/></item>
 <item name='$HTMLCode' sign='true'>
 <rawitemdata type='1'>
@@ -20,8 +21,12 @@ X/8QAAIADwAHAAAAAAAAAA==
 hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
 </rawitemdata></item>
 <item name='$Flags'><text/></item>
-<item name='$DesignerVersion'><text>8.5</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$$ScriptName' summary='false' sign='true'><text>item</text></item>
+<item name='date' summary='false'>
+<rawitemdata type='400'>
+AAAAAAAAAAA=
+</rawitemdata></item>
 <item name='account' placeholder='true'>
 <rawitemdata type='0'>
 </rawitemdata></item>
@@ -29,12 +34,12 @@ hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
 <rawitemdata type='0'>
 </rawitemdata></item>
 <item name='amount' summary='false'><number>0</number></item>
-<item name='date' summary='false'>
+<item name='createDate' summary='false'>
 <rawitemdata type='400'>
 AAAAAAAAAAA=
 </rawitemdata></item>
-<item name='$Fields'><textlist><text>date</text><text>amount</text><text>memo</text><text
->account</text></textlist></item>
+<item name='$Fields'><textlist><text>createDate</text><text>amount</text><text
+>memo</text><text>account</text><text>date</text></textlist></item>
 <item name='$Body' sign='true'>
 <rawitemdata type='1'>
 gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -65,7 +70,11 @@ EREBAQAAgQKDBAMAhf8eAAEAAAoQi+AQinogEIFpYW1vdW50EIFqEIFGpBIDAbMQayIAAFUCEREB
 AQAAgQKDBAQAhf8IAAEAAArdBgAAiv/+/1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAB4AHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIr/KgCKAAADADAC
 AAAAAAAAAgEAAAoAAAAAAAAAAAYAAAAAAGFtb3VudN4GAACK/4X/CAABAAAKpQYAAAAAgQKDBAEA
-hf8IAAEAAAo=
+hf8IAAEAAAqBAoMEAQCF/00AAQAACi0tLRCSshCOcRCCyRCP5hCCwRCCxBCDdBCDSBCBWxCDgBCC
+yRCPQxCQsxCC8BCJwRCCphCCxBCC3RCC3BCCtRCCvS0tLQCBAoMEAQCF/xIAAQAAChCN7BCQrBCT
++gndBgAAiv/+/1QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AHgAAAAAAABI
+gAEAAAAAAAECAgIBAQEBBwIAAAAAAAAAAAAAAAAAAC8vIDqK/zgAgAAABAAwAgAAAAQAAAABAAAK
+CgAAAAAAAAAKAAAAAAAKAAAACAAtAAMAY3JlYXRlRGF0Zd4GAACK/4X/CAABAAAK
 </rawitemdata></item>
 <item name='$ExternalFields'><text>1</text></item></note>
 
