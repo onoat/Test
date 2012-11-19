@@ -5,7 +5,7 @@
 		<xp:tr>
 			<xp:td style="width:100px;background-color:rgb(126,126,126)"
 				colspan="2">
-				<xp:label id="labelFooterTitle" value="Browser access information"
+				<xp:label id="labelFooterTitle" value="ブラウザ情報"
 					style="color:rgb(255,255,255);font-weight:bold;font-size:12pt">
 				</xp:label>
 			</xp:td>

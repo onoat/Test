@@ -13,11 +13,11 @@ function formatCurrency(amount) {
 } 
 
 function getMessage4Add(date, account, memo, amount) {
-	return "Expense for " + memo + " with " + amount + " yen on " + date + " 追加しました。";
+	return "Expense for " + memo + " with " + amount + " 円 on " + date + " 追加しました。";
 }
 
 function getMessage4Update(date, account, memo, amount) {
-	return "Expense for " + memo + " with " + amount + " yen on " + date + " 更新しました。";
+	return "Expense for " + memo + " with " + amount + " 円 on " + date + " 更新しました。";
 }
 
 function getMessage4Delete(memo) {
