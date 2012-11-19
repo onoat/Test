@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
-	<xp:br></xp:br>
+	おりゃおりゃ<xp:br></xp:br>
 	<xp:table style="width:750px">
 		<xp:tr>
 			<xp:td style="width:100px;background-color:rgb(126,126,126)"
